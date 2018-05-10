@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 
 import Home from './Home';
 import Login from './Login';
+import Register from './Register';
 import DetailVacancy from './Vacancy/Detail';
 
 const Content = route => (
@@ -20,6 +21,7 @@ class Routing extends Component{
         { path: "/", component: Home },
         { path: "/vacancy/:id", component: DetailVacancy },
         { path: "/login", component: Login },
+        { path: "/register", component: Register },
     ]
     render(){
         return(

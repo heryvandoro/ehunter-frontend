@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-class Login extends Component{
+class Register extends Component{
     constructor(props){
         super(props);
     }
@@ -17,37 +17,33 @@ class Login extends Component{
                             }}>
                             <form className="card" action="" method="post">
                             <div className="card-body p-6">
-                                <div className="card-title">Login to your account</div>
+                                <div className="card-title">Create an account</div>
+                                <div className="form-group">
+                                    <label className="form-label">Name</label>
+                                    <input type="text" className="form-control" placeholder="John Doe" />
+                                </div>
                                 <div className="form-group">
                                     <label className="form-label">Email address</label>
-                                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                                    <input type="email" className="form-control" placeholder="example@ehunter.com" />
                                 </div>
                                 <div className="form-group">
                                     <label className="form-label">Password</label>
                                     <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
                                 </div>
                                 <div className="form-group">
-                                    <label className="form-label">
-                                        Login As
-                                    </label>
+                                    <label className="form-label">Register As</label>
                                     <select className="form-control">
                                         <option>Hunters</option>
                                         <option>Company</option>
                                     </select>
                                 </div>
-                                <div className="form-group">
-                                    <label className="custom-control custom-checkbox">
-                                        <input type="checkbox" className="custom-control-input" />
-                                        <span className="custom-control-label">Remember me</span>
-                                    </label>
-                                </div>
                                 <div className="form-footer">
-                                    <button type="submit" className="btn btn-primary btn-block">Sign in</button>
+                                    <button type="submit" className="btn btn-primary btn-block">Register</button>
                                 </div>
                             </div>
                         </form>
                         <div className="text-center text-muted">
-                            Don't have account yet? <Link to="/register">Sign up</Link>
+                            Already have account? <Link to="/login">Sign in</Link>
                         </div>
                         </div>
                     </div>
@@ -57,4 +53,4 @@ class Login extends Component{
     }
 }
 
-export default Login;
+export default Register;
