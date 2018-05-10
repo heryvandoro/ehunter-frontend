@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './Shared/Header'
 import Footer from './Shared/Footer'
+import Routing from './Routing';
 
 class App extends Component {
 	render() {
@@ -10,13 +11,7 @@ class App extends Component {
 				<div className="page-main">
 					<Header />
 					<div className="my-3 my-md-5">
-						<div className="container">
-							<div className="page-header">
-								<h1 className="page-title">
-									Dashboard
-								</h1>
-							</div>
-						</div>
+						<Routing/>
 					</div>
 					<Footer />
 				</div>
