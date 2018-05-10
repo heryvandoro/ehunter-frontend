@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class Header extends Component{
     render(){
@@ -62,7 +63,9 @@ class Header extends Component{
                             <div className="col-lg order-lg-first">
                                 <ul className="nav nav-tabs border-0 flex-column flex-lg-row">
                                     <li className="nav-item">
-                                        <a href="./index.html" className="nav-link active"><i className="fe fe-home"></i> Home</a>
+                                        <Link className="nav-link active" to="/">
+                                            <i className="fe fe-home"></i> Home
+                                        </Link>
                                     </li>
                                     <li className="nav-item">
                                         <a href="javascript:void(0)" className="nav-link" data-toggle="dropdown"><i className="fe fe-box"></i> Interface</a>
@@ -71,43 +74,6 @@ class Header extends Component{
                                             <a href="./charts.html" className="dropdown-item ">Charts</a>
                                             <a href="./pricing-cards.html" className="dropdown-item ">Pricing cards</a>
                                         </div>
-                                    </li>
-                                    <li className="nav-item dropdown">
-                                        <a href="javascript:void(0)" className="nav-link" data-toggle="dropdown"><i className="fe fe-calendar"></i> Components</a>
-                                        <div className="dropdown-menu dropdown-menu-arrow">
-                                            <a href="./maps.html" className="dropdown-item ">Maps</a>
-                                            <a href="./icons.html" className="dropdown-item ">Icons</a>
-                                            <a href="./store.html" className="dropdown-item ">Store</a>
-                                            <a href="./blog.html" className="dropdown-item ">Blog</a>
-                                            <a href="./carousel.html" className="dropdown-item ">Carousel</a>
-                                        </div>
-                                    </li>
-                                    <li className="nav-item dropdown">
-                                        <a href="javascript:void(0)" className="nav-link" data-toggle="dropdown"><i className="fe fe-file"></i> Pages</a>
-                                        <div className="dropdown-menu dropdown-menu-arrow">
-                                            <a href="./profile.html" className="dropdown-item ">Profile</a>
-                                            <a href="./login.html" className="dropdown-item ">Login</a>
-                                            <a href="./register.html" className="dropdown-item ">Register</a>
-                                            <a href="./forgot-password.html" className="dropdown-item ">Forgot password</a>
-                                            <a href="./400.html" className="dropdown-item ">400 error</a>
-                                            <a href="./401.html" className="dropdown-item ">401 error</a>
-                                            <a href="./403.html" className="dropdown-item ">403 error</a>
-                                            <a href="./404.html" className="dropdown-item ">404 error</a>
-                                            <a href="./500.html" className="dropdown-item ">500 error</a>
-                                            <a href="./503.html" className="dropdown-item ">503 error</a>
-                                            <a href="./email.html" className="dropdown-item ">Email</a>
-                                            <a href="./empty.html" className="dropdown-item ">Empty page</a>
-                                            <a href="./rtl.html" className="dropdown-item ">RTL mode</a>
-                                        </div>
-                                    </li>
-                                    <li className="nav-item dropdown">
-                                        <a href="./form-elements.html" className="nav-link"><i className="fe fe-check-square"></i> Forms</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="./gallery.html" className="nav-link"><i className="fe fe-image"></i> Gallery</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="./docs/index.html" className="nav-link"><i className="fe fe-file-text"></i> Documentation</a>
                                     </li>
                                 </ul>
                             </div>

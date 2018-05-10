@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Slider from './Shared/Slider'
 import GeneralService from '../Services/GeneralService'
 
 class Home extends Component{
@@ -12,66 +13,13 @@ class Home extends Component{
     async componentWillMount(){
         let vacancies = await this.vacancy_service.getAll();
         this.setState({
-            vacancies : vacancies
+            vacancies : vacancies.data
         });
     }
     render(){
         return(
             <div>
-                <div className="map-header">
-                    <div id="carousel-captions" className="carousel slide" data-ride="carousel">
-                        <div className="carousel-inner" style={{height: "230px"}}>
-                            <div className="carousel-item active">
-                                <img className="d-block w-100" alt="" src="./demo/photos/david-marcu-114194-1500.jpg" data-holder-rendered="true" />
-                                <div className="carousel-item-background d-none d-md-block"></div>
-                                <div className="carousel-caption d-none d-md-block">
-                                    <h3>Slide label</h3>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
-                            <div className="carousel-item">
-                                <img className="d-block w-100" alt="" src="./demo/photos/davide-cantelli-139887-1500.jpg" data-holder-rendered="true" />
-                                <div className="carousel-item-background d-none d-md-block"></div>
-                                <div className="carousel-caption d-none d-md-block">
-                                    <h3>Slide label</h3>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
-                            <div className="carousel-item">
-                                <img className="d-block w-100" alt="" src="./demo/photos/dino-reichmuth-84359-1500.jpg" data-holder-rendered="true" />
-                                <div className="carousel-item-background d-none d-md-block"></div>
-                                <div className="carousel-caption d-none d-md-block">
-                                    <h3>Slide label</h3>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
-                            <div className="carousel-item">
-                                <img className="d-block w-100" alt="" src="./demo/photos/eberhard-grossgasteiger-311213-1500.jpg" data-holder-rendered="true" />
-                                <div className="carousel-item-background d-none d-md-block"></div>
-                                <div className="carousel-caption d-none d-md-block">
-                                    <h3>Slide label</h3>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
-                            <div className="carousel-item">
-                                <img className="d-block w-100" alt="" src="./demo/photos/geran-de-klerk-290418-1500.jpg" data-holder-rendered="true" />
-                                <div className="carousel-item-background d-none d-md-block"></div>
-                                <div className="carousel-caption d-none d-md-block">
-                                    <h3>Slide label</h3>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <a className="carousel-control-prev" href="#carousel-captions" role="button" data-slide="prev">
-                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span className="sr-only">Previous</span>
-                        </a>
-                        <a className="carousel-control-next" href="#carousel-captions" role="button" data-slide="next">
-                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span className="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
+                <Slider />
                 <div className="container">
                     <div className="row row-cards">
                         <div className="col-lg-3">
@@ -123,34 +71,63 @@ class Home extends Component{
                         <div className="col-lg-9">
                             <div className="card">
                                 <table className="table card-table table-vcenter">
-                                    <tr>
-                                        <td><img src="demo/products/apple-iphone7-special.jpg" alt="" className="h-8"/></td>
-                                        <td>
-                                            Apple iPhone 7 Plus 256GB Red Special Edition
-                                        </td>
-                                        <td className="text-right text-muted d-none d-md-table-cell text-nowrap">98 reviews</td>
-                                        <td className="text-right text-muted d-none d-md-table-cell text-nowrap">38 offers</td>
-                                        <td className="text-right">
-                                            <strong>$499</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="demo/products/samsung-galaxy.jpg" alt="" className="h-8"/></td>
-                                        <td>
-                                            Samsung Galaxy A5 A520F 2017 LTE Black Sky
-                                        </td>
-                                        <td className="text-right text-muted d-none d-md-table-cell text-nowrap">37 reviews</td>
-                                        <td className="text-right text-muted d-none d-md-table-cell text-nowrap">40 offers</td>
-                                        <td className="text-right">
-                                            <strong>$399</strong>
-                                        </td>
-                                    </tr>
+                                    <tbody>
+                                    {this.state.vacancies.map(vacancy => (
+                                        <tr key={vacancy.id}>
+                                            <td><img src="demo/products/apple-iphone7-special.jpg" alt="" className="h-8"/></td>
+                                            <td>
+                                                {vacancy.position_name}
+                                            </td>
+                                            <td className="text-right text-muted d-none d-md-table-cell text-nowrap">{vacancy.company.name}</td>
+                                            <td className="text-right text-muted d-none d-md-table-cell text-nowrap">{vacancy.hunters.length} hunters</td>
+                                            <td className="text-right">
+                                                <BadgeVacancy status={vacancy.status} />
+                                            </td>
+                                        </tr>
+                                    ))}
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        )
+    }
+}
+
+class BadgeVacancy extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            badge_class : "",
+            badge_text : ""
+        }
+    }
+    componentWillMount(){
+        let badge_class, badge_text;
+        switch(this.props.status){
+            case 0 :
+                badge_class = "badge-success";
+                badge_text = "Ongoing";
+                break;
+            case 1 :
+                badge_class = "badge-warning";
+                badge_text = "Processing";
+                break;
+            case 2 :
+                badge_class = "badge-danger";
+                badge_text = "Closed";
+                break;
+        }
+        this.setState({
+            badge_class : badge_class,
+            badge_text : badge_text
+        });
+    }
+    render(){
+        return(
+            <span className={"badge " + this.state.badge_class}>{this.state.badge_text}</span>
         )
     }
 }

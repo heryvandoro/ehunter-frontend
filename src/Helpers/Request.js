@@ -1,5 +1,4 @@
 import Axios from 'axios'
-import Constant from './Constant'
 
 class Request{
     static make(method, url, data = {}){
