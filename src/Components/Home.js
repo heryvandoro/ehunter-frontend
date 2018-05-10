@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Slider from './Shared/Slider'
 import GeneralService from '../Services/GeneralService'
+import { Link } from 'react-router-dom'
 
 class Home extends Component{
     constructor(props){
@@ -76,7 +77,7 @@ class Home extends Component{
                                         <tr key={vacancy.id}>
                                             <td><img src="demo/products/apple-iphone7-special.jpg" alt="" className="h-8"/></td>
                                             <td>
-                                                {vacancy.position_name}
+                                                <Link to={"/vacancy/" + vacancy.id}>{vacancy.position_name}</Link>
                                             </td>
                                             <td className="text-right text-muted d-none d-md-table-cell text-nowrap">{vacancy.company.name}</td>
                                             <td className="text-right text-muted d-none d-md-table-cell text-nowrap">{vacancy.hunters.length} hunters</td>

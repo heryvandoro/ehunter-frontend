@@ -8,16 +8,16 @@ class Header extends Component{
                 <div className="header py-4">
                     <div className="container">
                         <div className="d-flex">
-                            <a className="header-brand" href="./index.html">
-                                <img src="./demo/brand/tabler.svg" className="header-brand-img" alt="tabler logo" />
-                            </a>
+                            <Link className="header-brand" to="/">
+                                <img src="/demo/brand/tabler.svg" className="header-brand-img" alt="tabler logo" />
+                            </Link>
                             <div className="d-flex order-lg-2 ml-auto">
                                 <div className="nav-item d-none d-md-flex">
-                                    <a href="https://github.com/tabler/tabler" className="btn btn-sm btn-outline-primary" target="_blank">Source code</a>
+                                    <a href="https://github.com/tabler/tabler" className="btn btn-sm btn-outline-primary" target="_blank">Login</a>
                                 </div>
                                 <div className="dropdown d-none d-md-flex">
                                     <a className="nav-link icon" data-toggle="dropdown">
-                                        <i className="fe fe-bell"></i>
+                                        <i className="fe fe-user"></i>
                                         <span className="nav-unread"></span>
                                     </a>
                                 </div>

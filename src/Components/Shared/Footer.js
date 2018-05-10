@@ -11,20 +11,21 @@ class Footer extends Component{
                                 <div className="row">
                                     <div className="col-6 col-md-3">
                                         <ul className="list-unstyled mb-0">
-                                            <li><a href="#">First link</a></li>
-                                            <li><a href="#">Second link</a></li>
+                                            <li><a href="#">Pribadi Ridwan Mulyono</a></li>
+                                            <li><a href="#">Mario Viegash</a></li>
+                                            <li><a href="#">Hery Vandoro</a></li>
                                         </ul>
                                     </div>
                                     <div className="col-6 col-md-3">
                                         <ul className="list-unstyled mb-0">
-                                            <li><a href="#">Other link</a></li>
+                                            <li><a href="#">Bukalapak</a></li>
                                             <li><a href="#">Last link</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-lg-4 mt-4 mt-lg-0">
-                                Premium and Open Source dashboard template with responsive and high quality UI. For Free!
+                            <div className="text-right col-lg-4 mt-4 mt-lg-0">
+                                Easy find job, easy filtering CV!
                             </div>
                         </div>
                     </div>

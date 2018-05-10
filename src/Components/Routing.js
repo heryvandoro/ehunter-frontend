@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom';
 
 import Home from './Home';
+import DetailVacancy from './Vacancy/Detail';
 
 const Content = route => (
 	<Route
@@ -16,6 +17,7 @@ const Content = route => (
 class Routing extends Component{
     routes = [
         { path: "/", component: Home },
+        { path: "/vacancy/:id", component: DetailVacancy },
     ]
     render(){
         return(
