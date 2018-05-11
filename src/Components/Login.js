@@ -18,25 +18,28 @@ class Login extends Component{
     }
     async actionInsert(e){
         e.preventDefault();
-        let result = null;
-        console.log(this.state);
-        if(this.state.login_as === "Hunter"){
-            result = await this.service_hunter.login(this.state);
-        }else{
-            result = await this.service_company.login(this.state);
-        }
-        result = result.data;
-        console.log(result);
-        if(result.message !== null){
-            this.setState({ failed : true });
-        }else{
-            this.setState({ done : true });
-            result.login_as = this.state.login_as;
-            localStorage.setItem("login_data", result);
-            setTimeout(() => {
-                window.location.href = "/";
-            }, 1500);
-        }
+        this.setState({
+            done : false,
+            failed : false
+        }, async function(){
+            let result = null;
+            if(this.state.login_as === "Hunter"){
+                result = await this.service_hunter.login(this.state);
+            }else{
+                result = await this.service_company.login(this.state);
+            }
+            result = result.data;
+            if(result.messages === undefined){
+                this.setState({ done : true });
+                result.login_as = this.state.login_as;
+                localStorage.setItem("login_data", result);
+                setTimeout(() => {
+                    window.location.href = "/";
+                }, 1500);
+            }else{
+                this.setState({ failed : true });
+            }
+        });
     }
     logChange(e) {
         this.setState({[e.target.name]: e.target.value});  

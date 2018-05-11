@@ -5,12 +5,19 @@ class Header extends Component{
     constructor(props){
         super(props);
         this.state = {
-            login_data : {}
+            login_data : null
         };
+        this.auth_action = this.auth_action.bind(this);
     }
     componentWillMount(){
         let login_data = localStorage.getItem("login_data");
-        if(login_data) this.setState({ login_data : login_data });
+        console.log(login_data);
+        if(login_data !== null) this.setState({ login_data : login_data });
+    }
+    auth_action(e){
+        console.log(this.state);
+        if(this.state.login_data !== null) localStorage.removeItem("login_data");
+        window.location.href = "/login";
     }
     render(){
         return(
@@ -23,7 +30,7 @@ class Header extends Component{
                             </Link>
                             <div className="d-flex order-lg-2 ml-auto">
                                 <div className="nav-item d-none d-md-flex">
-                                    <Link to="/login" className="btn btn-sm btn-outline-primary">{this.state.login_data ? "Logout" : "Login"}</Link>
+                                    <span onClick={this.auth_action} className="btn btn-sm btn-outline-primary">{this.state.login_data !== null ? "Logout" : "Login"}</span>
                                 </div>
                                 <div className="dropdown d-none d-md-flex">
                                     <a className="nav-link icon" data-toggle="dropdown">
