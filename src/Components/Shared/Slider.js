@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class Slider extends Component{
     render(){
         return(
-            <div className="map-header" style={{zIndex : -1}}>
+            <div className="map-header">
                 <div id="carousel-captions" className="carousel slide" data-ride="carousel">
                     <div className="carousel-inner" style={{height: "230px"}}>
                         <div className="carousel-item active">
