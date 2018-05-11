@@ -36,7 +36,7 @@ class ResultVacancy extends Component {
                             <div className="col-lg-3 order-lg-1 mb-4">
                                 <ApplyButton onRef={ref => (this.apply_button = ref)} hunters={this.state.hunters} vacancy_id={this.state.id} />
                                 <div className="list-group list-group-transparent mb-0">
-                                    <Link to={"/vacancy/" + this.state.id} className="list-group-item list-group-item-action"><span className="icon mr-3"><i className="fe fe-flag"></i></span>Introduction</Link>
+                                    <Link to={"/vacancy/" + this.state.id + "/detail"} className="list-group-item list-group-item-action"><span className="icon mr-3"><i className="fe fe-flag"></i></span>Introduction</Link>
                                     <Link to={"/vacancy/" + this.state.id + "/hunters"} className="list-group-item list-group-item-action"><span className="icon mr-3"><i className="fe fe-user"></i></span>Hunters</Link>
                                     <Link to={"/vacancy/" + this.state.id + "/result"} className="active list-group-item list-group-item-action"><span className="icon mr-3"><i className="fe fe-alert-triangle"></i></span>Result</Link>
                                 </div>

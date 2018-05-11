@@ -17,7 +17,7 @@ class BoxVacancy extends Component{
                             <tr key={vacancy.id}>
                                 <td><img src={vacancy.company.logo} alt="" className="h-8"/></td>
                                 <td>
-                                    <Link to={"/vacancy/" + vacancy.id}>{vacancy.position_name}</Link>
+                                    <Link to={"/vacancy/" + vacancy.id +"/detail"}>{vacancy.position_name}</Link>
                                 </td>
                                 <td className="text-right text-muted d-none d-md-table-cell text-nowrap">{vacancy.company.name}</td>
                                 <td className="text-right text-muted d-none d-md-table-cell text-nowrap">{vacancy.hunters.length} hunters</td>
