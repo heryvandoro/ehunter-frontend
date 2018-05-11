@@ -48,6 +48,28 @@ class Hunter extends Component {
                                 <div className="col-lg-4">
                                     <div className="card">
                                         <div className="card-header">
+                                            <h3 className="card-title">My CV</h3>
+                                            <div className="card-options">
+                                                <Link to="/" className="stamp bg-green">&nbsp;<i style={{color: "white"}} className="fe fe-download" />&nbsp;</Link>
+                                                <Link to="/" className="stamp bg-red">&nbsp;<i style={{color: "white"}} className="fe fe-link" />&nbsp;</Link>
+                                            </div>
+                                        </div>
+                                        <div className="card-body">
+                                            <form onSubmit={this.actionSave}>
+                                                <div className="form-group">
+                                                    <div className="custom-file">
+                                                        <input type="file" className="custom-file-input" name="example-file-input-custom" />
+                                                        <label className="custom-file-label">Choose file</label>
+                                                    </div>
+                                                </div>
+                                                <div className="form-footer">
+                                                    <button className="btn btn-primary btn-block">Upload</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div className="card">
+                                        <div className="card-header">
                                             <h3 className="card-title">My Profile</h3>
                                         </div>
                                         <div className="card-body">
