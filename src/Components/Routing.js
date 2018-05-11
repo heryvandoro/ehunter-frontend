@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import Home from './Home';
 import Login from './Login';
 import Register from './Register';
-import DetailVacancy from './Vacancy/Detail';
+import Vacancy from './Vacancy/Router';
 
 const Content = route => (
 	<Route
@@ -19,7 +19,8 @@ const Content = route => (
 class Routing extends Component{
     routes = [
         { path: "/", component: Home },
-        { path: "/vacancy/:id", component: DetailVacancy },
+        { path: "/vacancy/:id", component: Vacancy.Detail },
+        { path: "/vacancy/:id/hunters", component: Vacancy.Hunters },
         { path: "/login", component: Login },
         { path: "/register", component: Register },
     ]

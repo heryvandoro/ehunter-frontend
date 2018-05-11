@@ -4,14 +4,15 @@ import Footer from '../Shared/Footer'
 import { Link } from 'react-router-dom'
 import GeneralService from '../../Services/GeneralService'
 
-class DetailVacancy extends Component {
+class HunterVacancy extends Component {
     constructor(props){
         super(props);
         this.vacancy_service = new GeneralService("/vacancies");
         this.state = {
             id : this.props.match.params.id,
             requirements : [],
-            company : {}
+            company : {},
+            hunters : []
         }
     }
     async componentWillMount(){
@@ -35,8 +36,8 @@ class DetailVacancy extends Component {
                                     <i className="fe fe-briefcase mr-2"></i>Apply Job
                                 </a>
                                 <div className="list-group list-group-transparent mb-0">
-                                    <Link to={"/vacancy/" + this.state.id} className="active list-group-item list-group-item-action"><span className="icon mr-3"><i className="fe fe-flag"></i></span>Introduction</Link>
-                                    <Link to={"/vacancy/" + this.state.id + "/hunters"} className="list-group-item list-group-item-action"><span className="icon mr-3"><i className="fe fe-user"></i></span>Hunters</Link>
+                                    <Link to={"/vacancy/" + this.state.id} className="list-group-item list-group-item-action"><span className="icon mr-3"><i className="fe fe-flag"></i></span>Introduction</Link>
+                                    <Link to={"/vacancy/" + this.state.id + "/hunters"} className="active list-group-item list-group-item-action"><span className="icon mr-3"><i className="fe fe-user"></i></span>Hunters</Link>
                                     <Link to={"/vacancy/" + this.state.id + "/result"} className="list-group-item list-group-item-action"><span className="icon mr-3"><i className="fe fe-alert-triangle"></i></span>Result</Link>
                                 </div>
                             </div>
@@ -44,18 +45,23 @@ class DetailVacancy extends Component {
                                 <div className="card">
                                     <div className="card-body">
                                         <div className="text-wrap p-lg-6">
-                                            <h2 className="mt-0 mb-4">Description</h2>
-                                            <p>{this.state.description}</p>
-                                            <h2 className="mt-0 mb-4">Salary</h2>
-                                            <p>{this.state.salary_start} - {this.state.salary_end}</p>
-                                            <h2 id="setup-environment">Requirement</h2>
-                                            <ol>
-                                                {this.state.requirements.map(req => (
-                                                    <li key={req.id}>{req.text}</li>
-                                                ))}
-                                            </ol>
-                                            <h2 className="mt-0 mb-4">About Company - {this.state.company.name}</h2>
-                                            <p>{this.state.company.description}</p>
+                                            <h2 className="mt-0 mb-4">Hunters</h2>
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {this.state.hunters.map(hunter=>(
+                                                        <tr>
+                                                            <td>{hunter.name}</td>
+                                                            <td>{hunter.email}</td>
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -69,4 +75,4 @@ class DetailVacancy extends Component {
     }
 }
 
-export default DetailVacancy;
+export default HunterVacancy;
