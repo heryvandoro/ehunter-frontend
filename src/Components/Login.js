@@ -79,7 +79,7 @@ class Login extends Component{
                                         <label className="form-label">
                                             Login As
                                         </label>
-                                        <select className="form-control">
+                                        <select name="login_as" onChange={this.logChange} className="form-control">
                                             <option>Hunter</option>
                                             <option>Company</option>
                                         </select>

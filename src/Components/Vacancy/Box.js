@@ -12,7 +12,7 @@ class BoxVacancy extends Component{
         return(
             <div>
                 <div className="card-header">
-                    <h3 className="card-title">Vacancies</h3>
+                    <h3 className="card-title">{this.props.title}</h3>
                 </div>
                 <table className="table card-table table-vcenter">
                     <tbody>

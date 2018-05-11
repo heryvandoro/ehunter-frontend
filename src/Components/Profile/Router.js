@@ -1,3 +1,4 @@
 import Hunter from './Hunter'
+import Company from './Company'
 
-export default { Hunter }
+export default { Hunter, Company }

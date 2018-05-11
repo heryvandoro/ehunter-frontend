@@ -25,7 +25,8 @@ class Routing extends Component{
         { path: "/vacancy/:id/result", component: Vacancy.Result },
         { path: "/login", component: Login },
         { path: "/register", component: Register },
-        { path: "/profile/hunter", component: Profile.Hunter }
+        { path: "/profile/hunter", component: Profile.Hunter },
+        { path: "/profile/company", component: Profile.Company }
     ]
     render(){
         return(

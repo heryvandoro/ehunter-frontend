@@ -34,7 +34,7 @@ class Home extends Component{
                                 </div>
                                 <div className="col-lg-8">
                                     <div className="card">
-                                        <Vacancy.Box vacancies={this.state.vacancies} />
+                                        <Vacancy.Box title="All Vacancies" vacancies={this.state.vacancies} />
                                     </div>
                                 </div>
                             </div>
