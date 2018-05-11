@@ -32,7 +32,7 @@ class Login extends Component{
             if(result.messages === undefined){
                 this.setState({ done : true });
                 result.login_as = this.state.login_as;
-                localStorage.setItem("login_data", result);
+                localStorage.setItem("login_data", JSON.stringify(result));
                 setTimeout(() => {
                     window.location.href = "/";
                 }, 1500);
