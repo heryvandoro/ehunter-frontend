@@ -42,7 +42,7 @@ class Register extends Component{
                                 <div className="card-body p-6">
                                     <div className="card-title">Create an account</div>
                                     {this.state.done ? <div className="form-group">
-                                        <div class="alert alert-success mb-0">
+                                        <div className="alert alert-success mb-0">
                                             Register success! Redirecting now...
                                         </div>
                                     </div> : ""}

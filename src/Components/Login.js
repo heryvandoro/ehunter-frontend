@@ -1,9 +1,45 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import CompanyService from '../Services/CompanyService'
+import HunterService from '../Services/HunterService'
 
 class Login extends Component{
     constructor(props){
         super(props);
+        this.service_hunter = new HunterService("/hunters");
+        this.service_company = new CompanyService("/companies");
+        this.state = {
+            done : false,
+            failed : false,
+            login_as : "Hunter"
+        };
+        this.logChange = this.logChange.bind(this);
+        this.actionInsert = this.actionInsert.bind(this);
+    }
+    async actionInsert(e){
+        e.preventDefault();
+        let result = null;
+        console.log(this.state);
+        if(this.state.login_as === "Hunter"){
+            result = await this.service_hunter.login(this.state);
+        }else{
+            result = await this.service_company.login(this.state);
+        }
+        result = result.data;
+        console.log(result);
+        if(result.message !== null){
+            this.setState({ failed : true });
+        }else{
+            this.setState({ done : true });
+            result.login_as = this.state.login_as;
+            localStorage.setItem("login_data", result);
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 1500);
+        }
+    }
+    logChange(e) {
+        this.setState({[e.target.name]: e.target.value});  
     }
     render(){
         return(
@@ -15,16 +51,26 @@ class Login extends Component{
                             top: '50%',
                             transform: 'translateY(-50%)'
                         }}>
-                            <form className="card" action="" method="post">
+                            <form className="card" onSubmit={this.actionInsert}>
                                 <div className="card-body p-6">
                                     <div className="card-title">Login to your account</div>
+                                    {this.state.done ? <div className="form-group">
+                                        <div className="alert alert-success mb-0">
+                                            Register success! Redirecting now...
+                                        </div>
+                                    </div> : ""}
+                                    {this.state.failed ? <div className="form-group">
+                                        <div className="alert alert-danger mb-0">
+                                            Wrong credentials data!
+                                        </div>
+                                    </div> : ""}
                                     <div className="form-group">
                                         <label className="form-label">Email address</label>
-                                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                                        <input onChange={this.logChange} name="email" type="email" className="form-control" placeholder="Enter email" />
                                     </div>
                                     <div className="form-group">
                                         <label className="form-label">Password</label>
-                                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                                        <input onChange={this.logChange} name="password" type="password" className="form-control" placeholder="Password" />
                                     </div>
                                     <div className="form-group">
                                         <label className="form-label">
