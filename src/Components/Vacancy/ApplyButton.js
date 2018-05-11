@@ -16,7 +16,8 @@ class ApplyButton extends Component{
         this.props.onRef(this);
     }
     checkExist(data){
-        data.forEach(h => {
+        if(data.status === 2) this.setState({ exist : true });
+        data.hunters.forEach(h => {
             if(h.id === this.login_data.id) this.setState({ exist : true });
         });
     }

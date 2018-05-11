@@ -15,12 +15,16 @@ class Register extends Component{
     }
     async actionInsert(e){
         e.preventDefault();
+        let result = null;
         if(this.state.register_as === "Hunter"){
-            await this.service_hunter.insert(this.state);
+            result = await this.service_hunter.insert(this.state);
         }else{
-            await this.service_company.insert(this.state);
+            result = await this.service_company.insert(this.state);
         }
         this.setState({ done : true });
+        result = result.data;
+        result.login_as = this.state.register_as;
+        localStorage.setItem("login_data", JSON.stringify(result));
         setTimeout(() => {
             window.location.href = "/";
         }, 1500);

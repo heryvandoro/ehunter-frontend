@@ -19,7 +19,7 @@ class DetailVacancy extends Component {
     async componentWillMount(){
         let vacancy = await this.vacancy_service.getOne(this.state.id);
         this.setState(vacancy.data);
-        this.apply_button.checkExist(vacancy.data.hunters);
+        this.apply_button.checkExist(vacancy.data);
     }
     render(){
        return(

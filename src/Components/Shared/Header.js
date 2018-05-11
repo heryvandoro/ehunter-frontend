@@ -11,11 +11,12 @@ class Header extends Component{
     }
     componentWillMount(){
         let login_data = localStorage.getItem("login_data");
-        console.log(login_data);
-        if(login_data !== null) this.setState({ login_data : login_data });
+        if(login_data !== null) {
+            login_data = JSON.parse(login_data);
+            this.setState({ login_data : login_data });
+        }
     }
     auth_action(e){
-        console.log(this.state);
         if(this.state.login_data !== null) localStorage.removeItem("login_data");
         window.location.href = "/login";
     }
