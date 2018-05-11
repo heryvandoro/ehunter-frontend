@@ -21,6 +21,7 @@ class Routing extends Component{
         { path: "/", component: Home },
         { path: "/vacancy/:id", component: Vacancy.Detail },
         { path: "/vacancy/:id/hunters", component: Vacancy.Hunters },
+        { path: "/vacancy/:id/result", component: Vacancy.Result },
         { path: "/login", component: Login },
         { path: "/register", component: Register },
     ]
