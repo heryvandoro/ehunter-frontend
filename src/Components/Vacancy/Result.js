@@ -19,6 +19,7 @@ class ResultVacancy extends Component {
     async componentWillMount(){
         let vacancy = await this.vacancy_service.getOne(this.state.id);
         this.setState(vacancy.data);
+        this.apply_button.checkExist(vacancy.data.hunters);
     }
     render(){
        return(
@@ -33,7 +34,7 @@ class ResultVacancy extends Component {
                         </div>
                         <div className="row">
                             <div className="col-lg-3 order-lg-1 mb-4">
-                                <ApplyButton vacancy_id={this.state.id} />
+                                <ApplyButton hunters={this.state.hunters} vacancy_id={this.state.id} />
                                 <div className="list-group list-group-transparent mb-0">
                                     <Link to={"/vacancy/" + this.state.id} className="list-group-item list-group-item-action"><span className="icon mr-3"><i className="fe fe-flag"></i></span>Introduction</Link>
                                     <Link to={"/vacancy/" + this.state.id + "/hunters"} className="list-group-item list-group-item-action"><span className="icon mr-3"><i className="fe fe-user"></i></span>Hunters</Link>
