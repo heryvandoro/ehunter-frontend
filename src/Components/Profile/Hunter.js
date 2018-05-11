@@ -15,6 +15,16 @@ class Hunter extends Component {
         this.logChange = this.logChange.bind(this);
         this.actionSave = this.actionSave.bind(this);
         this.uploadCV = this.uploadCV.bind(this);
+        this.copyCV = this.copyCV.bind(this);
+    }
+    copyCV(e){
+        e.preventDefault();
+        let textField = document.createElement('textarea')
+        textField.innerText = this.state.cv;
+        document.body.appendChild(textField)
+        textField.select()
+        document.execCommand('copy')
+        textField.remove()
     }
     async componentWillMount(){
         let login_data = localStorage.getItem("login_data");
@@ -62,8 +72,8 @@ class Hunter extends Component {
                                         <div className="card-header">
                                             <h3 className="card-title">My CV</h3>
                                             <div className="card-options">
-                                                <Link to="/" className="stamp bg-green">&nbsp;<i style={{color: "white"}} className="fe fe-download" />&nbsp;</Link>
-                                                <Link to="/" className="stamp bg-red">&nbsp;<i style={{color: "white"}} className="fe fe-link" />&nbsp;</Link>
+                                                <Link target="_blank" to={this.state.cv || '/'} className="stamp bg-green">&nbsp;<i style={{color: "white"}} className="fe fe-download" />&nbsp;</Link>
+                                                <Link onClick={this.copyCV} to="/" className="stamp bg-red">&nbsp;<i style={{color: "white"}} className="fe fe-link" />&nbsp;</Link>
                                             </div>
                                         </div>
                                         <div className="card-body">
