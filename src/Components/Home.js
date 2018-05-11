@@ -5,7 +5,7 @@ import Footer from './Shared/Footer'
 import GeneralService from '../Services/GeneralService'
 import Profile from './Profile/Router'
 import Company from './Company/Router'
-import BoxVacancy from './Shared/BoxVacancy'
+import Vacancy from './Vacancy/Router'
 
 class Home extends Component{
     constructor(props){
@@ -34,7 +34,7 @@ class Home extends Component{
                                 </div>
                                 <div className="col-lg-8">
                                     <div className="card">
-                                        <BoxVacancy vacancies={this.state.vacancies} />
+                                        <Vacancy.Box vacancies={this.state.vacancies} />
                                     </div>
                                 </div>
                             </div>
