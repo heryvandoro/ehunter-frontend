@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from '../Shared/Header'
 import Footer from '../Shared/Footer'
 import { Link } from 'react-router-dom'
+import ApplyButton from './ApplyButton';
 import GeneralService from '../../Services/GeneralService'
 
 class DetailVacancy extends Component {
@@ -31,9 +32,7 @@ class DetailVacancy extends Component {
                         </div>
                         <div className="row">
                             <div className="col-lg-3 order-lg-1 mb-4">
-                                <a href="https://github.com/tabler/tabler" className="btn btn-block btn-primary mb-6">
-                                    <i className="fe fe-briefcase mr-2"></i>Apply Job
-                                </a>
+                                <ApplyButton />
                                 <div className="list-group list-group-transparent mb-0">
                                     <Link to={"/vacancy/" + this.state.id} className="active list-group-item list-group-item-action"><span className="icon mr-3"><i className="fe fe-flag"></i></span>Introduction</Link>
                                     <Link to={"/vacancy/" + this.state.id + "/hunters"} className="list-group-item list-group-item-action"><span className="icon mr-3"><i className="fe fe-user"></i></span>Hunters</Link>

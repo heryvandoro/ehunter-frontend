@@ -2,6 +2,16 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 class Header extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            login_data : {}
+        };
+    }
+    componentWillMount(){
+        let login_data = localStorage.getItem("login_data");
+        if(login_data) this.setState({ login_data : login_data });
+    }
     render(){
         return(
             <div>
@@ -13,7 +23,7 @@ class Header extends Component{
                             </Link>
                             <div className="d-flex order-lg-2 ml-auto">
                                 <div className="nav-item d-none d-md-flex">
-                                    <Link to="/login" className="btn btn-sm btn-outline-primary">Login</Link>
+                                    <Link to="/login" className="btn btn-sm btn-outline-primary">{this.state.login_data ? "Logout" : "Login"}</Link>
                                 </div>
                                 <div className="dropdown d-none d-md-flex">
                                     <a className="nav-link icon" data-toggle="dropdown">
@@ -66,14 +76,6 @@ class Header extends Component{
                                         <Link className="nav-link active" to="/">
                                             <i className="fe fe-home"></i> Home
                                         </Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="javascript:void(0)" className="nav-link" data-toggle="dropdown"><i className="fe fe-box"></i> Interface</a>
-                                        <div className="dropdown-menu dropdown-menu-arrow">
-                                            <a href="./cards.html" className="dropdown-item ">Cards design</a>
-                                            <a href="./charts.html" className="dropdown-item ">Charts</a>
-                                            <a href="./pricing-cards.html" className="dropdown-item ">Pricing cards</a>
-                                        </div>
                                     </li>
                                 </ul>
                             </div>
