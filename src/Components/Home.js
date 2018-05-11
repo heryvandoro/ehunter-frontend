@@ -4,6 +4,8 @@ import Header from './Shared/Header'
 import Footer from './Shared/Footer'
 import GeneralService from '../Services/GeneralService'
 import { Link } from 'react-router-dom'
+import Profile from './Profile/Router'
+import Company from './Company/Router'
 
 class Home extends Component{
     constructor(props){
@@ -27,53 +29,10 @@ class Home extends Component{
                         <Slider />
                         <div className="container">
                             <div className="row row-cards">
-                                <div className="col-lg-3">
-                                    <div className="row">
-                                        <div className="col-md-6 col-lg-12">
-                                            <div className="card">
-                                                <div className="card-body">
-                                                    <div className="mb-4 text-center">
-                                                        <img src="demo/products/apple-iphone7-special.jpg" alt="Apple iPhone 7 128GB" className="img-fluid" />
-                                                    </div>
-                                                    <h4 className="card-title"><a href="javascript:void(0)">Apple iPhone 7 Plus 256GB Red Special Edition</a></h4>
-                                                    <div className="card-subtitle">
-                                                        Apple
-                                                    </div>
-                                                    <div className="mt-5 d-flex align-items-center">
-                                                        <div className="product-price">
-                                                            <strong>$499</strong>
-                                                        </div>
-                                                        <div className="ml-auto">
-                                                            <a href="javascript:void(0)" className="btn btn-primary"><i className="fe fe-plus"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6 col-lg-12">
-                                            <div className="card">
-                                                <div className="card-body">
-                                                    <div className="mb-4 text-center">
-                                                        <img src="demo/products/gopro-hero.jpg" alt="Apple iPhone 7 128GB" className="img-fluid" />
-                                                    </div>
-                                                    <h4 className="card-title"><a href="javascript:void(0)">GoPro HERO6 Black</a></h4>
-                                                    <div className="card-subtitle">
-                                                        GoPro
-                                                    </div>
-                                                    <div className="mt-5 d-flex align-items-center">
-                                                        <div className="product-price">
-                                                            <strong>$599</strong>
-                                                        </div>
-                                                        <div className="ml-auto">
-                                                            <a href="javascript:void(0)" className="btn btn-primary"><i className="fe fe-plus"></i> Add to cart</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div className="col-lg-4">
+                                    <Company.Sidebar />
                                 </div>
-                                <div className="col-lg-9">
+                                <div className="col-lg-8">
                                     <div className="card">
                                         <table className="table card-table table-vcenter">
                                             <tbody>

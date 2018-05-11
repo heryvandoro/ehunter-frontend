@@ -9,13 +9,7 @@ class Hunter extends Component {
     }
 
     render(){
-       return(
-            <div>
-            <Header />
-                
-            <Footer />
-            </div>
-       )
+       return("")
     }
 }
 
