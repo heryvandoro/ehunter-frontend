@@ -59,7 +59,7 @@ class Login extends Component{
                                     <div className="card-title">Login to your account</div>
                                     {this.state.done ? <div className="form-group">
                                         <div className="alert alert-success mb-0">
-                                            Register success! Redirecting now...
+                                            Login success! Redirecting now...
                                         </div>
                                     </div> : ""}
                                     {this.state.failed ? <div className="form-group">

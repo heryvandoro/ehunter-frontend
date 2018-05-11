@@ -34,10 +34,12 @@ class Header extends Component{
                                     <span onClick={this.auth_action} className="btn btn-sm btn-outline-primary">{this.state.login_data !== null ? "Logout" : "Login"}</span>
                                 </div>
                                 <div className="dropdown d-none d-md-flex">
-                                    <a className="nav-link icon" data-toggle="dropdown">
-                                        <i className="fe fe-user"></i>
-                                        <span className="nav-unread"></span>
-                                    </a>
+                                    {this.state.login_data !== null ? 
+                                        <Link to={"/profile/" + (this.state.login_data.login_as === "Hunter" ? "hunter" : "company")} className="nav-link icon" data-toggle="dropdown">
+                                            <i className="fe fe-user"></i>
+                                            <span className="nav-unread"></span>
+                                        </Link> 
+                                    : ""}
                                 </div>
                                 <div className="dropdown">
                                     <div className="dropdown-menu dropdown-menu-right dropdown-menu-arrow">

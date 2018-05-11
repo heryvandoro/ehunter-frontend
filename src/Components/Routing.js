@@ -5,6 +5,8 @@ import Home from './Home';
 import Login from './Login';
 import Register from './Register';
 import Vacancy from './Vacancy/Router';
+import Profile from './Profile/Router';
+
 const Content = route => (
 	<Route
 		exact={true}
@@ -22,7 +24,8 @@ class Routing extends Component{
         { path: "/vacancy/:id/hunters", component: Vacancy.Hunters },
         { path: "/vacancy/:id/result", component: Vacancy.Result },
         { path: "/login", component: Login },
-        { path: "/register", component: Register }
+        { path: "/register", component: Register },
+        { path: "/profile/hunter", component: Profile.Hunter }
     ]
     render(){
         return(
