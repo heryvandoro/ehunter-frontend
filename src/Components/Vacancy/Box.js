@@ -11,8 +11,8 @@ class BoxVacancy extends Component{
         );
         return(
             <div>
-                <div class="card-header">
-                    <h3 class="card-title">Vacancies</h3>
+                <div className="card-header">
+                    <h3 className="card-title">Vacancies</h3>
                 </div>
                 <table className="table card-table table-vcenter">
                     <tbody>

@@ -16,7 +16,7 @@ class GeneralService{
         return Request.make("POST", this.path, data);
     }
     update(id, data){
-        return Request.make("PUT", this.path + "/" + id, data);
+        return Request.make("PATCH", this.path + "/" + id, data);
     }
     delete(id){
         return Request.make("DELETE", this.path + "/" + id);
