@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import GeneralService from '../../Services/GeneralService';
 
 class Sidebar extends Component{
@@ -31,7 +32,7 @@ class Sidebar extends Component{
                                     <small className="d-block text-muted">{company.vacancies.length} jobs</small>
                                 </div>
                                 <div className="ml-auto text-muted">
-                                    <a href="javascript:void(0)" className="icon d-none d-md-inline-block ml-3"><i className="fe fe-heart mr-1"></i></a>
+                                    <Link to="" className="icon d-none d-md-inline-block ml-3"><i className="fe fe-heart mr-1"></i></Link>
                                 </div>
                             </div>
                         ))}

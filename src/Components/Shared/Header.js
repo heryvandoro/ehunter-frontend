@@ -41,31 +41,7 @@ class Header extends Component{
                                         </Link> 
                                     : ""}
                                 </div>
-                                <div className="dropdown">
-                                    <div className="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                        <a className="dropdown-item" href="#">
-                                            <i className="dropdown-icon fe fe-user"></i> Profile
-                                        </a>
-                                        <a className="dropdown-item" href="#">
-                                            <i className="dropdown-icon fe fe-settings"></i> Settings
-                                        </a>
-                                        <a className="dropdown-item" href="#">
-                                            <span className="float-right"><span className="badge badge-primary">6</span></span>
-                                            <i className="dropdown-icon fe fe-mail"></i> Inbox
-                                        </a>
-                                        <div className="dropdown-divider"></div>
-                                        <a className="dropdown-item" href="#">
-                                            <i className="dropdown-icon fe fe-help-circle"></i> Need help?
-                                        </a>
-                                        <a className="dropdown-item" href="#">
-                                            <i className="dropdown-icon fe fe-log-out"></i> Sign out
-                                        </a>
-                                    </div>
-                                </div>
                             </div>
-                            <a href="#" className="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
-                                <span className="header-toggler-icon"></span>
-                            </a>
                         </div>
                     </div>
                 </div>

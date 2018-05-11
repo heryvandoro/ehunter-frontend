@@ -102,6 +102,10 @@ class BadgeResult extends Component{
                 badge_class = "badge-danger";
                 badge_text = "Rejected";
                 break;
+            default :
+                badge_class = "";
+                badge_text = "";
+                break;
         }
         this.setState({
             badge_class : badge_class,

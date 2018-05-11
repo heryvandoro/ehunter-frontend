@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import Header from '../Shared/Header'
 import Footer from '../Shared/Footer'
-import { Link } from 'react-router-dom'
 import Vacancy from '../Vacancy/Router'
-import GeneralService from '../../Services/HunterService'
 import CompanyService from '../../Services/CompanyService';
 
 class Company extends Component {
@@ -28,7 +26,7 @@ class Company extends Component {
     }
     async actionSave(e){
         e.preventDefault();
-        let hunter = await this.service.update(this.state.id, this.state);
+        await this.service.update(this.state.id, this.state);
         window.location.reload();
     }
     logChange(e) {

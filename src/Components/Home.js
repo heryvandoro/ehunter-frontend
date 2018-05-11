@@ -3,7 +3,6 @@ import Slider from './Shared/Slider'
 import Header from './Shared/Header'
 import Footer from './Shared/Footer'
 import GeneralService from '../Services/GeneralService'
-import Profile from './Profile/Router'
 import Company from './Company/Router'
 import Vacancy from './Vacancy/Router'
 

@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 class BoxVacancy extends Component{
-    constructor(props){
-        super(props);
-    }
     render(){
         if(this.props.vacancies.length === 0) return (
             <div className="card-body">No Data</div>
@@ -58,6 +55,10 @@ class BadgeVacancy extends Component{
             case 2 :
                 badge_class = "badge-danger";
                 badge_text = "Closed";
+                break;
+            default :
+                badge_class = "";
+                badge_text = "";
                 break;
         }
         this.setState({

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class Footer extends Component{
     render(){
@@ -11,15 +12,14 @@ class Footer extends Component{
                                 <div className="row">
                                     <div className="col-6 col-md-3">
                                         <ul className="list-unstyled mb-0">
-                                            <li><a href="#">Pribadi Ridwan Mulyono</a></li>
-                                            <li><a href="#">Mario Viegash</a></li>
-                                            <li><a href="#">Hery Vandoro</a></li>
+                                            <li><Link to="/">Pribadi Ridwan Mulyono</Link></li>
+                                            <li><Link to="/">Mario Viegash</Link></li>
+                                            <li><Link to="/">Hery Vandoro</Link></li>
                                         </ul>
                                     </div>
                                     <div className="col-6 col-md-3">
                                         <ul className="list-unstyled mb-0">
-                                            <li><a href="#">Bukalapak</a></li>
-                                            <li><a href="#">Last link</a></li>
+                                            <li><Link to="/">Tokopedia</Link></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -34,7 +34,7 @@ class Footer extends Component{
                     <div className="container">
                         <div className="row align-items-center flex-row-reverse">
                             <div className="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
-                                Copyright © 2018 <a href=".">eHunter</a>. Theme by <a href="https://github.com/tabler/tabler" target="_blank">Tabler</a> All rights reserved.
+                                Copyright © 2018 <a href=".">eHunter</a>. Theme by Tabler. All rights reserved.
                             </div>
                         </div>
                     </div>
