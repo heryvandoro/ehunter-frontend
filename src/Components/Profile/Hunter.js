@@ -14,6 +14,7 @@ class Hunter extends Component {
         this.service = new HunterService("/hunters");
         this.logChange = this.logChange.bind(this);
         this.actionSave = this.actionSave.bind(this);
+        this.uploadCV = this.uploadCV.bind(this);
     }
     async componentWillMount(){
         let login_data = localStorage.getItem("login_data");
@@ -24,13 +25,25 @@ class Hunter extends Component {
         }
         else window.location.href = "/";
     }
+    async uploadCV(e){
+        e.preventDefault();
+        let data = new FormData();
+        if(this.state.file) data.append('file', this.state.file, this.state.file.name);
+
+        await this.service.uploadCV(this.state.id, data);
+        window.location.reload();
+    }
     async actionSave(e){
         e.preventDefault();
         await this.service.update(this.state.id, this.state);
         window.location.reload();
     }
     logChange(e) {
-        this.setState({[e.target.name]: e.target.value});  
+        if(e.target.name === "file"){
+            this.setState({"file" : e.target.files[0]});
+        }else{
+            this.setState({[e.target.name]: e.target.value});  
+        }
     }
     render(){
         return(
@@ -54,11 +67,11 @@ class Hunter extends Component {
                                             </div>
                                         </div>
                                         <div className="card-body">
-                                            <form onSubmit={this.actionSave}>
+                                            <form onSubmit={this.uploadCV}>
                                                 <div className="form-group">
                                                     <div className="custom-file">
-                                                        <input type="file" className="custom-file-input" name="example-file-input-custom" />
-                                                        <label className="custom-file-label">Choose file</label>
+                                                        <input onChange={this.logChange} type="file" name="file" className="custom-file-input" />
+                                                        <label className="custom-file-label">Choose CV</label>
                                                     </div>
                                                 </div>
                                                 <div className="form-footer">
