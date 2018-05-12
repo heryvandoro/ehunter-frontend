@@ -4,6 +4,7 @@ import Footer from '../Shared/Footer'
 import { Link } from 'react-router-dom'
 import ApplyButton from './ApplyButton';
 import GeneralService from '../../Services/GeneralService'
+import BadgeStatus from './BadgeStatus'
 
 class ResultVacancy extends Component {
     constructor(props){
@@ -20,6 +21,7 @@ class ResultVacancy extends Component {
         let vacancy = await this.vacancy_service.getOne(this.state.id);
         this.setState(vacancy.data);
         this.apply_button.checkExist(vacancy.data);
+        this.badge_status.sync(vacancy.data.status);
     }
     render(){
        return(
@@ -29,7 +31,7 @@ class ResultVacancy extends Component {
                     <div className="container">
                         <div className="page-header">
                             <h1 className="page-title">
-                                {this.state.position_name}
+                                {this.state.position_name} - <BadgeStatus onRef={ref => (this.badge_status = ref)} />
                             </h1>
                         </div>
                         <div className="row">
