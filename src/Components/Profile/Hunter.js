@@ -10,11 +10,14 @@ class Hunter extends Component {
         super(props);
         this.state = {
             vacancies : [],
+            otw_cv : false,
+            otw_ktp : false
         }
         this.service = new HunterService("/hunters");
         this.logChange = this.logChange.bind(this);
         this.actionSave = this.actionSave.bind(this);
         this.uploadCV = this.uploadCV.bind(this);
+        this.uploadKTP = this.uploadKTP.bind(this);
         this.copyCV = this.copyCV.bind(this);
     }
     copyCV(e){
@@ -37,10 +40,23 @@ class Hunter extends Component {
     }
     async uploadCV(e){
         e.preventDefault();
+        this.setState({ otw_cv : true });
         let data = new FormData();
         if(this.state.file) data.append('file', this.state.file, this.state.file.name);
 
         await this.service.uploadCV(this.state.id, data);
+        window.location.reload();
+    }
+    async uploadKTP(e){
+        e.preventDefault();
+        this.setState({ otw_ktp : true });
+        let data = new FormData();
+        if(this.state.ktp_file) data.append('file', this.state.ktp_file, this.state.ktp_file.name);
+
+        let ktp = await this.service.uploadKTP(this.state.id, data);
+        if(ktp.data.messages !== "success"){
+            alert(ktp.data.messages);
+        }
         window.location.reload();
     }
     async actionSave(e){
@@ -49,8 +65,8 @@ class Hunter extends Component {
         window.location.reload();
     }
     logChange(e) {
-        if(e.target.name === "file"){
-            this.setState({"file" : e.target.files[0]});
+        if(["file", "ktp_file"].indexOf(e.target.name) !== -1){
+            this.setState({[e.target.name] : e.target.files[0]});
         }else{
             this.setState({[e.target.name]: e.target.value});  
         }
@@ -62,12 +78,32 @@ class Hunter extends Component {
 					<div className="my-3 my-md-5">
                         <div className="container">
                             <div className="row row-cards">
-                                <div className="col-lg-8">
+                                <div className="col-lg-6">
                                     <div className="card">
                                         <Vacancy.Box title="Applied Vacancy" vacancies={this.state.vacancies} />
                                     </div>
                                 </div>
-                                <div className="col-lg-4">
+                                <div className="col-lg-3">
+                                    <div className="card">
+                                        <div className="card-header">
+                                            <h3 className="card-title">KTP</h3>
+                                        </div>
+                                        <div className="card-body">
+                                            {this.state.ktp === "" || this.state.ktp === null ? 
+                                            <form onSubmit={this.uploadKTP}>
+                                                <div className="form-group">
+                                                    <div className="custom-file">
+                                                        <input onChange={this.logChange} type="file" name="ktp_file" className="custom-file-input" />
+                                                        <label className="custom-file-label">Choose KTP</label>
+                                                    </div>
+                                                </div>
+                                                <div className="form-footer">
+                                                    <button disabled={this.state.otw_ktp} className="btn btn-primary btn-block">Upload</button>
+                                                </div>
+                                            </form>
+                                            : <img src={this.state.ktp} /> }
+                                        </div>
+                                    </div>
                                     <div className="card">
                                         <div className="card-header">
                                             <h3 className="card-title">My CV</h3>
@@ -85,11 +121,13 @@ class Hunter extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="form-footer">
-                                                    <button className="btn btn-primary btn-block">Upload</button>
+                                                    <button disabled={this.state.otw_cv} className="btn btn-primary btn-block">Upload</button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
+                                </div>
+                                <div className="col-lg-3">
                                     <div className="card">
                                         <div className="card-header">
                                             <h3 className="card-title">My Profile</h3>

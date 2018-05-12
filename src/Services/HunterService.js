@@ -8,6 +8,9 @@ class HunterService extends GeneralService{
     uploadCV(id, data){
         return Request.make("POST", this.path + "/" + id + "/uploadcv", data);
     }
+    uploadKTP(id, data){
+        return Request.make("POST", this.path + "/" + id + "/uploadktp", data);
+    }
 }
 
 export default HunterService;

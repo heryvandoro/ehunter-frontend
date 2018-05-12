@@ -100,44 +100,4 @@ class ResultVacancy extends Component {
     }
 }
 
-class BadgeResult extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            badge_class : "",
-            badge_text : ""
-        }
-    }
-    componentWillMount(){
-        let badge_class, badge_text;
-        switch(this.props.status){
-            case 0 :
-                badge_class = "badge-warning";
-                badge_text = "Pending";
-                break;
-            case 1 :
-                badge_class = "badge-success";
-                badge_text = "Accepted";
-                break;
-            case 2 :
-                badge_class = "badge-danger";
-                badge_text = "Rejected";
-                break;
-            default :
-                badge_class = "";
-                badge_text = "";
-                break;
-        }
-        this.setState({
-            badge_class : badge_class,
-            badge_text : badge_text
-        });
-    }
-    render(){
-        return(
-            <span className={"badge " + this.state.badge_class}>{this.state.badge_text}</span>
-        )
-    }
-}
-
 export default ResultVacancy;
