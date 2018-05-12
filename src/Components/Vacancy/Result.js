@@ -23,6 +23,13 @@ class ResultVacancy extends Component {
         this.apply_button.checkExist(vacancy.data);
         this.badge_status.sync(vacancy.data.status);
     }
+    exportData(e, type){
+        e.preventDefault();
+        window.$('table').tableExport({
+            filename: 'Report_' + this.state.position_name + "_" + this.state.company.name,
+            format: type,
+        });
+    }
     render(){
        return(
             <div>
@@ -49,6 +56,18 @@ class ResultVacancy extends Component {
                                         <div className="text-wrap p-lg-6">
                                             <h2 className="mt-0 mb-4">Result</h2>
                                             {this.state.status === 2 ? 
+                                            <div>
+                                                <div className="input-group mb-4">
+                                                    <div className="input-group-append">
+                                                        <button data-toggle="dropdown" type="button" className="btn btn-primary dropdown-toggle">Export Data</button>
+                                                        <div className="dropdown-menu dropdown-menu-left">
+                                                            <Link onClick={e => { this.exportData(e, "csv") }} to="/" className="dropdown-item">CSV</Link>
+                                                            <Link onClick={e => { this.exportData(e, "txt") }} to="/" className="dropdown-item">TXT</Link>
+                                                            <Link onClick={e => { this.exportData(e, "xls") }} to="/" className="dropdown-item">XLS</Link>
+                                                            <Link onClick={e => { this.exportData(e, "sql") }} to="/" className="dropdown-item">SQL</Link>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <table>
                                                     <thead>
                                                         <tr>
@@ -59,14 +78,14 @@ class ResultVacancy extends Component {
                                                     </thead>
                                                     <tbody>
                                                         {this.state.hunters.map(hunter=>(
-                                                            <tr>
+                                                            <tr key={hunter.id}>
                                                                 <td>{hunter.name}</td>
                                                                 <td>{hunter.email}</td>
                                                                 <td>{hunter.hunter_vacancy.score}</td>
                                                             </tr>
                                                         ))}
                                                     </tbody>
-                                                </table>
+                                                </table></div>
                                             : "Job doesn't finished yet."}
                                         </div>
                                     </div>
