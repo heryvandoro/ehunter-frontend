@@ -101,6 +101,7 @@ class Process extends Component{
                                                 <div className="form-group">
                                                     <label className="form-label">Vacancy</label>
                                                     <select onChange={this.logChange} name="vacancy_id" className="form-control custom-select">
+                                                        <option key={-1} value="-1" disabled>Select Vacancy</option>
                                                         {this.state.ongoings.map(on => (
                                                             <option key={on.id} value={on.id}>{on.position_name}</option>
                                                         ))};

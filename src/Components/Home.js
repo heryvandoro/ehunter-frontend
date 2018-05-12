@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Slider from './Shared/Slider'
 import Header from './Shared/Header'
 import Footer from './Shared/Footer'
 import GeneralService from '../Services/GeneralService'
@@ -25,7 +24,6 @@ class Home extends Component{
             <div>
                 <Header />
 					<div className="my-3 my-md-5">
-                        <Slider />
                         <div className="container">
                             <div className="row row-cards">
                                 <div className="col-lg-4">

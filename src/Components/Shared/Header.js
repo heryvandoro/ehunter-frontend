@@ -27,7 +27,7 @@ class Header extends Component{
                     <div className="container">
                         <div className="d-flex">
                             <Link className="header-brand" to="/">
-                                <img src="/demo/brand/tabler.svg" className="header-brand-img" alt="tabler logo" />
+                                <img src="/assets/images/logo.png" className="header-brand-img" alt="tabler logo" />
                             </Link>
                             <div className="d-flex order-lg-2 ml-auto">
                                 <div className="nav-item d-none d-md-flex">
