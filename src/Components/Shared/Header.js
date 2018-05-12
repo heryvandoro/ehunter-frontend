@@ -63,10 +63,19 @@ class Header extends Component{
                                             <i className="fe fe-home"></i> Home
                                         </Link>
                                     </li>
-                                    {this.state.login_data !== null && this.state.login_data.login_as === "Company" ? 
+                                    {
+                                        this.state.login_data !== null && this.state.login_data.login_as === "Company" ? 
                                         <li className="nav-item">
                                             <Link className="nav-link" to="/vacancy/insert">
                                                 <i className="fe fe-plus"></i> Insert Vacancy
+                                            </Link>
+                                        </li> : ""
+                                    }
+                                    {
+                                        this.state.login_data !== null && this.state.login_data.login_as === "Company" ? 
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/vacancy/process">
+                                                <i className="fe fe-activity"></i> Process Vacancy
                                             </Link>
                                         </li> : ""
                                     }
