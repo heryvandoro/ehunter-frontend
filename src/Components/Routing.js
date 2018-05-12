@@ -20,7 +20,8 @@ const Content = route => (
 class Routing extends Component{
     routes = [
         { path: "/", component: Home },
-        { path: "/vacancy/insert/", component: Vacancy.Insert },
+        { path: "/vacancy/insert", component: Vacancy.Insert },
+        { path: "/vacancy/process", component: Vacancy.Process },
         { path: "/vacancy/:id/detail", component: Vacancy.Detail },
         { path: "/vacancy/:id/hunters", component: Vacancy.Hunters },
         { path: "/vacancy/:id/result", component: Vacancy.Result },

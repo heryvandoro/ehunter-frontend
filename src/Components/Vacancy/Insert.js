@@ -21,14 +21,13 @@ class Insert extends Component{
     deleteReq(e){
         e.preventDefault();
         let idx = window.$(e.target).parents(".row.mb-3").index();
-        console.log(this.state.req_divs.length + "vs" + idx);
         let sliced = this.state.req_divs.slice(0);
         sliced.splice(idx-1, 1);
         this.setState({ req_divs : sliced });
     }
     addReq(e){
         e.preventDefault(); 
-        let joined = this.state.req_divs.concat(<ReqInput key={this.state.req_divs.length} action={this.deleteReq} />);
+        let joined = this.state.req_divs.concat(<ReqInput key={new Date()} action={this.deleteReq} />);
         this.setState({ req_divs : joined });
     }
     componentWillMount(){

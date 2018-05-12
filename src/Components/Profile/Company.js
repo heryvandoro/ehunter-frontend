@@ -20,7 +20,6 @@ class Company extends Component {
             login_data = JSON.parse(login_data);
             let company = await this.service.getOne(login_data.id);
             this.setState(company.data);
-            console.log(company.data);
         }
         else window.location.href = "/";
     }
