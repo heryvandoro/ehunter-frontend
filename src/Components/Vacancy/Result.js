@@ -54,7 +54,7 @@ class ResultVacancy extends Component {
                                                         <tr>
                                                             <th>Name</th>
                                                             <th>Email</th>
-                                                            <th>Status</th>
+                                                            <th>Score</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -62,7 +62,7 @@ class ResultVacancy extends Component {
                                                             <tr>
                                                                 <td>{hunter.name}</td>
                                                                 <td>{hunter.email}</td>
-                                                                <td><BadgeResult status={hunter.hunter_vacancy.status} /></td>
+                                                                <td>{hunter.hunter_vacancy.score}</td>
                                                             </tr>
                                                         ))}
                                                     </tbody>
