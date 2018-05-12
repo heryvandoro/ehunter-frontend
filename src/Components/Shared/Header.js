@@ -59,10 +59,17 @@ class Header extends Component{
                             <div className="col-lg order-lg-first">
                                 <ul className="nav nav-tabs border-0 flex-column flex-lg-row">
                                     <li className="nav-item">
-                                        <Link className="nav-link active" to="/">
+                                        <Link className="nav-link" to="/">
                                             <i className="fe fe-home"></i> Home
                                         </Link>
                                     </li>
+                                    {this.state.login_data !== null && this.state.login_data.login_as === "Company" ? 
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/vacancy/insert">
+                                                <i className="fe fe-plus"></i> Insert Vacancy
+                                            </Link>
+                                        </li> : ""
+                                    }
                                 </ul>
                             </div>
                         </div>
