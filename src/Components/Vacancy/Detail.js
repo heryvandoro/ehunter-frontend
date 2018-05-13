@@ -4,17 +4,20 @@ import Footer from '../Shared/Footer'
 import { Link } from 'react-router-dom'
 import ApplyButton from './ApplyButton';
 import GeneralService from '../../Services/GeneralService'
+import HunterService from '../../Services/HunterService'
 import BadgeStatus from './BadgeStatus'
 
 class DetailVacancy extends Component {
     constructor(props){
         super(props);
         this.vacancy_service = new GeneralService("/vacancies");
+        this.service_hunter = new HunterService("/hunters");
         this.state = {
             id : this.props.match.params.id,
             requirements : [],
             company : {},
-            hunters : []
+            hunters : [],
+            result_user : null
         }
     }
     async componentWillMount(){
@@ -22,6 +25,21 @@ class DetailVacancy extends Component {
         this.setState(vacancy.data);
         this.apply_button.checkExist(vacancy.data);
         this.badge_status.sync(vacancy.data.status);
+
+        this.login_data = localStorage.getItem("login_data");
+        if(this.login_data) this.login_data = JSON.parse(this.login_data);
+        if(this.login_data === undefined || this.login_data === null) return;
+        let user = await this.service_hunter.getOne(this.login_data.id);
+        user.data.vacancies.forEach(v => {
+            if(v.id == this.state.id){
+                if(v.hunter_vacancy.score !== null){
+                    let temp = `Your Score : ${v.hunter_vacancy.score}. ${v.hunter_vacancy.reason}. ${v.hunter_vacancy.feedback}`
+                    this.setState({
+                        result_user : temp
+                    })
+                }
+            }
+        });
     }
     render(){
        return(
@@ -47,6 +65,10 @@ class DetailVacancy extends Component {
                                 <div className="card">
                                     <div className="card-body">
                                         <div className="text-wrap p-lg-6">
+                                            {this.state.result_user === null ? "" : 
+                                                <div class="alert alert-primary">
+                                                {this.state.result_user}
+                                            </div>}
                                             <h2 className="mt-0 mb-4">Description</h2>
                                             <p>{this.state.description}</p>
                                             <h2 className="mt-0 mb-4">Salary</h2>
