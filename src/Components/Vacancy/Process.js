@@ -61,7 +61,7 @@ class Process extends Component{
             let input_val = window.$("input[name=criteria_val]").eq(i).val();
             criteria[select_val] = input_val;
         });
-        if(criteria.skill !== null){
+        if(criteria.skill !== undefined){
             criteria.skill = criteria.skill.split(",");
             criteria.skill = criteria.skill.map(s => {
                 return s.trim();
@@ -101,7 +101,7 @@ class Process extends Component{
                                                 <div className="form-group">
                                                     <label className="form-label">Vacancy</label>
                                                     <select onChange={this.logChange} name="vacancy_id" className="form-control custom-select">
-                                                        <option key={-1} value="-1" disabled>Select Vacancy</option>
+                                                        <option key={-1} value="-1" selected disabled>Select Vacancy</option>
                                                         {this.state.ongoings.map(on => (
                                                             <option key={on.id} value={on.id}>{on.position_name}</option>
                                                         ))};
