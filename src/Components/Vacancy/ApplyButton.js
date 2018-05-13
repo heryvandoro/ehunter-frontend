@@ -21,7 +21,7 @@ class ApplyButton extends Component{
         if(this.login_data === undefined || this.login_data === null) return;
         
         let user = await this.service_hunter.getOne(this.login_data.id);
-        if(user.data.ktp === undefined || user.data.ktp === null) this.setState({ exist : true });
+        if(user.data.ktp_raw === undefined || user.data.ktp_raw === null) this.setState({ exist : true });
         if(data.status !== 0) this.setState({ exist : true });
         data.hunters.forEach(h => {
             if(h.id === this.login_data.id) this.setState({ exist : true });

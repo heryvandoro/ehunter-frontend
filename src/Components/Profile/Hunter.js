@@ -107,10 +107,11 @@ class Hunter extends Component {
                                     <div className="card">
                                         <div className="card-header">
                                             <h3 className="card-title">My CV</h3>
+                                            {this.state.cv_raw !== null ? 
                                             <div className="card-options">
                                                 <Link target="_blank" to={this.state.cv || '/'} className="stamp bg-green">&nbsp;<i style={{color: "white"}} className="fe fe-download" />&nbsp;</Link>
                                                 <Link onClick={this.copyCV} to="/" className="stamp bg-red">&nbsp;<i style={{color: "white"}} className="fe fe-link" />&nbsp;</Link>
-                                            </div>
+                                            </div> : ""}
                                         </div>
                                         <div className="card-body">
                                             <form onSubmit={this.uploadCV}>
