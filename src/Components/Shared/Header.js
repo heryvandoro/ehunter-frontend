@@ -64,6 +64,14 @@ class Header extends Component{
                                         </Link>
                                     </li>
                                     {
+                                        this.state.login_data !== null ? 
+                                        <li className="nav-item">
+                                            <Link to={"/profile/" + (this.state.login_data.login_as === "Hunter" ? "hunter" : "company")} className="nav-link">
+                                                <i className="fe fe-user"></i> Profile
+                                            </Link> 
+                                        </li> : ""
+                                    }
+                                    {
                                         this.state.login_data !== null && this.state.login_data.login_as === "Company" ? 
                                         <li className="nav-item">
                                             <Link className="nav-link" to="/vacancy/insert">
