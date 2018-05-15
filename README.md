@@ -1,12 +1,10 @@
-## eHunter - CV Filtering
-This is a backend repository for eHunter - CV Filtering System. Built with NodeJS (ExpressJS + SequelizeJS ORM)
+## eHunter - CV Filtering System (Frontend)
+This is a frontend repository for eHunter - CV Filtering System. Built with NodeJS (ExpressJS + SequelizeJS ORM)
 
 ## How to use
-- Clone this repository `git clone https://github.com/heryvandoro/ehunter-backend`
+- Clone this repository `git clone https://github.com/heryvandoro/ehunter-frontend`
 - run `npm install`
-- Get your own service account auth file (.json) with [this step](https://cloud.google.com/vision/docs/auth)
-- Place at the root project folder, and config `constant.js` based on your key name. 
-- run `index.js` with your preferred tool. (maybe nodemon/pm2)
+- run `npm start`
 
 ## Features
 - Import CV with several filetypes (.doc, .docx, .pdf, .jpg, .png, .jpeg, .xls, .xlsx)
