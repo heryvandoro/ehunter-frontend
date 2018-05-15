@@ -1,5 +1,8 @@
 ## eHunter - CV Filtering System (Frontend)
-This is a frontend repository for eHunter - CV Filtering System. Built with NodeJS (ExpressJS + SequelizeJS ORM)
+
+![](https://github.com/heryvandoro/ehunter-backend/blob/master/images/logo.png?raw=true)
+
+This is a frontend repository for eHunter - CV Filtering System. Built with ReactJS and ![Tabler](https://tabler.github.io/tabler/) Dashboard Template 
 
 ## How to use
 - Clone this repository `git clone https://github.com/heryvandoro/ehunter-frontend`
