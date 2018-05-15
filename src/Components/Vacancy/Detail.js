@@ -29,6 +29,7 @@ class DetailVacancy extends Component {
         this.login_data = localStorage.getItem("login_data");
         if(this.login_data) this.login_data = JSON.parse(this.login_data);
         if(this.login_data === undefined || this.login_data === null) return;
+        if(this.login_data.login_as === "Company") return;
         let user = await this.service_hunter.getOne(this.login_data.id);
         user.data.vacancies.forEach(v => {
             if(v.id == this.state.id){
